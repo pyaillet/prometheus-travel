@@ -33,7 +33,7 @@ services:
     ports:
       - 9093:9093
   front:
-    image: <TO_BE_DEFINED>
+    image: travel-front
     labels:
      - "traefik.port=80"
      - "traefik.backend=front"

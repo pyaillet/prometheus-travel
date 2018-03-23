@@ -25,7 +25,7 @@ services:
     volumes:
       - ./:/root/app
   front:
-    image: <TO_BE_DEFINED>
+    image: travel-front
     labels:
      - "traefik.port=80"
      - "traefik.backend=front"
