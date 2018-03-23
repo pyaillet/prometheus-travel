@@ -1019,12 +1019,14 @@ function onSendSuccess(){
   showDefaultText();
 }
 function onSend(){
-  jQuery.post(
-      '/travel-back/goToTime',
-      '{"destination_date": '+dDestination.toISOString()+'}',
-      onSendSuccess,
-      "json"
-    );
+  jQuery.ajax({
+    type: "POST",
+    url: '/travel-back/goToTime',
+    data: '{"destination_date": "' + dDestination.toISOString() + '"}',
+    contentType: "application/json",
+    dataType: "json",
+    success: onSendSuccess
+  });
 }
 function onBack(){
 	jQuery(".formshare").show();
