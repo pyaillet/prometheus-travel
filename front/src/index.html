@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Time Circuits - Share the date!</title>
+<meta name="title" content="Time Circuits - Share the date!">
+
+<link rel="stylesheet" href="css/screen.css">
+<script type="text/javascript" src="libs/include_libs.js"></script>
+<script type="text/javascript" src="apps/include_apps.js"></script>
+<script>
+$(document).ready(init);
+
+function init(){
+  // Visualizza il preloader
+  initPreloaderApp();
+  // Inizializza l'app
+  var pathRes = "xml/resources.xml"
+  setTimeout(function(){initMainApp(pathRes)} , Const.TEMPO_MINIMO_PRELOADING);
+}
+
+</script>
+
+</head>
+
+<body>
+<!-- preloader -->
+<div class="preloaderApp">
+<img class="clipLoader" src="img/preloader/preloader.gif">
+<label class="lblLoader"></label>
+</div>
+
+<!-- main app -->
+<div class="mainApp">
+  <canvas id="stage" width="1280" height="720"></canvas>
+
+  <div class="ingombro">
+    <div class="formshare" style="display:none">
+      <label id="title" class="bttfbig">hey mcfly share your destination</label>
+      <label id="subtitle" class="bttf">set your favorite dates by clicking on any display then reach 88mph and...</label>
+      <div class="buttonsShare">
+        <span id="btnFb" class="BtnShare"></span>
+        <span id="btnTwt" class="BtnShare"></span>
+        <span id="btnGp" class="BtnShare"></span>
+      </div>
+    </div>
+    <div class="formdettaglio" style="display:none">
+      <div id="btnSend"></div>
+    </div>
+
+    <div class="counter" style="display:none">
+      <label id="uploading" class="bttfbig">Uploading at 88mph</label>
+    </div>
+  </div>
+
+</body>
+</html>
