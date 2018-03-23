@@ -1,0 +1,57 @@
+version: "3.1"
+services:
+  prometheus:
+    image: prom/prometheus:v2.1.0
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./rules:/etc/prometheus-rules
+    ports:
+      - "9090:9090"
+    labels:
+      container_group: "monitoring"
+  grafana:
+    image: grafana/grafana
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    env_file:
+      - config.monitoring
+    labels:
+      container_group: "monitoring"
+  grafana-init:
+    build: grafana-init
+    environment:
+      - GRAFANA_HOST=grafana:3000
+    volumes:
+      - ./:/root/app
+  alertmanager:
+    image: prom/alertmanager:v0.13.0
+    volumes:
+      - ./alertmanager-config.yml:/etc/alertmanager/config.yml
+      - ./aliens.tmpl:/etc/alertmanager/templates/aliens.tmpl
+    ports:
+      - 9093:9093
+  front:
+    image: <TO_BE_DEFINED>
+    labels:
+     - "traefik.port=80"
+     - "traefik.backend=front"
+     - "traefik.frontend.rule=PathPrefix:/travel-front/"
+  back:
+    image: <TO_BE_DEFINED>
+    labels:
+     - "traefik.port=80"
+     - "traefik.backend=front"
+     - "traefik.frontend.rule=PathPrefix:/travel-back/"
+  traefik:
+    image: traefik
+    command: --api --docker
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+    prometheus_data: {}
+    grafana_data: {}   
