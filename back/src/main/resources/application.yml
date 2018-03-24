@@ -1,0 +1,5 @@
+management:
+  security:
+    enabled: false
+server:
+  contextPath: /travel-back
