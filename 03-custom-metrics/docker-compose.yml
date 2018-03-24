@@ -30,11 +30,11 @@ services:
      - "traefik.port=80"
      - "traefik.backend=front"
      - "traefik.frontend.rule=PathPrefix:/travel-front/"
-  back:
-    image: <TO_BE_DEFINED>
+  delorean:
+    image: travel-back
     labels:
-     - "traefik.port=80"
-     - "traefik.backend=front"
+     - "traefik.port=8080"
+     - "traefik.backend=back"
      - "traefik.frontend.rule=PathPrefix:/travel-back/"
   traefik:
     image: traefik
