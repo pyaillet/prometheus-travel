@@ -1,0 +1,12 @@
+groups:
+- name: delorean
+  interval: 1s
+  rules:
+  - alert: Uranium_quantity
+    expr: uranium_quantity{instance="delorean:8080",job="delorean"} <= 4
+    for: 10s
+    labels: 
+      severity: slack
+    annotations:
+      summary: "☢️Doc it's seems we need Uranium️☢️"
+      description: "⛽Go to the gas station and fill up! Uranium gauge is under 4 ⛽"

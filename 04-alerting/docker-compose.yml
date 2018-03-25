@@ -1,7 +1,7 @@
 version: "3.1"
 services:
   prometheus:
-    image: prom/prometheus:v2.1.0
+    image: prom/prometheus:v2.2.0
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - ./rules:/etc/prometheus-rules
@@ -10,7 +10,7 @@ services:
     labels:
       container_group: "monitoring"
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:5.0.3
     depends_on:
       - prometheus
     ports:
@@ -26,10 +26,10 @@ services:
     volumes:
       - ./:/root/app
   alertmanager:
-    image: prom/alertmanager:v0.13.0
+    image: prom/alertmanager:v0.14.0
     volumes:
       - ./alertmanager-config.yml:/etc/alertmanager/config.yml
-      - ./aliens.tmpl:/etc/alertmanager/templates/aliens.tmpl
+      - ./delorean.tmpl:/etc/alertmanager/templates/delorean.tmpl
     ports:
       - 9093:9093
   front:
