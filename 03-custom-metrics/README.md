@@ -4,4 +4,4 @@
  - Go to http://localhost:8081
  - Go to http://localhost:8081/source.html
  - Go to http://localhost:8081/metrics
- - Go to http://localhost:3000/dashboard/db/alien-dashboard?orgId=1
+ - Go to http://localhost:3000/dashboard/db/delorean-dashboard?orgId=1

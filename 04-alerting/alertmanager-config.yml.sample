@@ -16,8 +16,8 @@ route:
 receivers:
 - name: slack_general
   slack_configs:
-  - api_url: <YOUR_URL>
-    channel: '#monitoring'
+  - api_url: <secret>
+    channel: '#monitoring-test'
 
 templates:
-- '/etc/alertmanager/templates/aliens.tmpl'
+- '/etc/alertmanager/templates/delorean.tmpl'
