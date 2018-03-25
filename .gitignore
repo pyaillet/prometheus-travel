@@ -1,2 +1,3 @@
 *test.sh
 */alertmanager-config.yml
+*.secret

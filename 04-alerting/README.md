@@ -5,4 +5,4 @@
  - Go to http://localhost:9090/rules
  - Go to http://localhost:9090/alerts
  - Go to http://localhost:9093/#/alerts
- - Go to http://localhost:3000/dashboard/db/alien-dashboard?orgId=1
+ - Go to http://localhost:3000/dashboard/db/delorean-dashboard?orgId=1
