@@ -7,6 +7,6 @@ if [ $(uname) == "Darwin" ]; then
     open http://localhost:9090/rules
     open http://localhost:9090/alerts
     open http://localhost:9093/#/alerts
-    sleep 3
-    open "http://localhost:3000/dashboard/db/delorean-dashboard?orgId=1&refresh=1s&from=now-5m&to=now"
+    sleep 10
+    open "http://localhost:3000/dashboard/db/delorean?orgId=1&refresh=1s&from=now-5m&to=now"
 fi
