@@ -1,5 +1,6 @@
 package fr.zenika.prometheus.delorean;
 
+import java.util.Calendar;
 import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
 import io.prometheus.client.spring.boot.EnableSpringBootMetricsCollector;
 import io.prometheus.client.spring.web.EnablePrometheusTiming;
@@ -24,19 +25,29 @@ public class DeloreanApplication {
   @RestController
   static public class OrderController {
 
+      static final Float SPEED_OF_TIME = new Float(88);
+      static final Float INIT_URANIUM_STOCK = new Float(10);
+      static final Float INIT_CURRENT_YEAR = 
+          new Float(Calendar.getInstance().get(Calendar.YEAR));
+
       static final Counter consumed_uranium = Counter.build()
               .name("consumed_uranium").help("Consumed uranium.(kg)").register();
 
-      static final Gauge uranium_quantity = Gauge.build()
-              .name("uranium_quantity").help("Consumed uranium.(kg)").register();
+      static final Gauge uranium_quantity;
 
       static final Gauge speed = Gauge.build()
               .name("speed").help("Delorean Speed.").register();
       
-      static final Gauge current_year = Gauge.build()
-              .name("current_year").help("Delorean current year.").register();
+      static final Gauge current_year;
 
-      static final Float SPEED_OF_TIME = new Float(88);
+      static {
+          uranium_quantity = Gauge.build()
+              .name("uranium_quantity").help("Available uranium.(kg)").register();
+          uranium_quantity.set(INIT_URANIUM_STOCK);
+          current_year = Gauge.build()
+              .name("current_year").help("Delorean current year.").register();
+          current_year.set(INIT_CURRENT_YEAR);
+      }
 
       @RequestMapping(method = RequestMethod.POST, value = "/goToTime")
       @PrometheusTimeMethod(name = "time_to_travel", help = "Travel Duration")
