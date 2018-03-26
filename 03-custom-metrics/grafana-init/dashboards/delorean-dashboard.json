@@ -363,6 +363,7 @@
                 "titleSize": "h6"
             }
         ],
+        "refresh": "1s",
         "schemaVersion": 14,
         "style": "dark",
         "tags": [],
@@ -370,11 +371,12 @@
             "list": []
         },
         "time": {
-            "from": "2018-03-24T17:11:15.032Z",
-            "to": "2018-03-24T17:13:30.703Z"
+            "from": "now-5m",
+            "to": "now"
         },
         "timepicker": {
             "refresh_intervals": [
+                "1s",
                 "5s",
                 "10s",
                 "30s",

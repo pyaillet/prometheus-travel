@@ -145,9 +145,9 @@ html, body {
   vertical-align: top;
   height: 98px;
 }
-#btnSend{
-  padding-top: 20px;  
-  background-image: url("../img/btnSend.png");
+#btnSend,
+#btnFillUp {
+  background-color: #000;
   width: 154px;
   height: 42px;
   background-position: 0 0;
