@@ -1,4 +1,4 @@
 #!/bin/sh
 
-docker rm -f $(docker ps -aq)
+docker-compose down
 docker volume prune -f

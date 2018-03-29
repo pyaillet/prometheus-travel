@@ -26,7 +26,7 @@ public class DeloreanApplication {
   static public class OrderController {
 
       static final Float SPEED_OF_TIME = new Float(88);
-      static final Float INIT_URANIUM_STOCK = new Float(10);
+      static final Float INIT_URANIUM_STOCK = new Float(6);
       static final Float INIT_CURRENT_YEAR = 
           new Float(Calendar.getInstance().get(Calendar.YEAR));
 
